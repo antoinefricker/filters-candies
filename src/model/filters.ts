@@ -107,10 +107,6 @@ export type FeMorphologyFilter = AbstractFilter<"feMorphology"> &
     input: SourceUuid;
   };
 
-export type GraphicSource = AbstractFilter<"source"> & {
-  type: "illustration" | "mixed" | "photograph" | "text" | "video";
-};
-
 // @todo FeSpecularLightingFilter
 // @todo FeDiffuseLightingFilter
 // @todo FeTileFilter

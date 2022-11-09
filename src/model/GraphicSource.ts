@@ -2,6 +2,6 @@
 
 import { AbstractFilter } from "./filters";
 
-export type GraphicSource = AbstractFilter<"source"> & {
+export type GraphicSourceData = AbstractFilter<"source"> & {
   type: "illustration" | "mixed" | "photograph" | "text" | "video";
 };

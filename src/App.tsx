@@ -1,10 +1,15 @@
-import { SVGFiltersEditor } from "./components/FlowEditorPOC/SVGFiltersEditor";
+import { FlowEditor } from "./components/FlowEditor/FlowEditor";
+import { Edge, Node } from "reactflow";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { FlowEditorMenu } from "./components/FlowEditor/FlowEditorMenu";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Filters Candies</h1>
-      <SVGFiltersEditor />
+    <div id="app">
+      <FlowEditorMenu />
+      <FlowEditor />
     </div>
   );
 }

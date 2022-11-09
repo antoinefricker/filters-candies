@@ -11,10 +11,9 @@ import ReactFlow, {
   addEdge,
   Connection,
   NodeTypes,
-  NodeProps,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import { CustomNode, CustomNodeData } from "./CustomNode";
+import { CustomNode } from "./CustomNode";
 
 const initialNodes: Node<any>[] = [
   {
