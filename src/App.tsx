@@ -1,13 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import { SVGFiltersEditor } from "./components/FlowEditorPOC/SVGFiltersEditor";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <h1>Filters Candies</h1>
+      <SVGFiltersEditor />
     </div>
   );
 }
