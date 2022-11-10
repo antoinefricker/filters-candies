@@ -8,6 +8,7 @@ import {
   SourceUuid,
   Transfer,
 } from "./filtersUtils";
+import { Node } from "reactflow";
 
 export type SVGFilterType =
   | "feBlend"
@@ -21,9 +22,12 @@ export type SVGFilterType =
   | "feMorphology"
   | "source";
 
-export type AbstractFilter<T extends SVGFilterType> = {
-  id: string;
-  type: T;
+export type MyNode<FilterType extends SVGFilterType, TypeData> = {
+  type: FilterType;
+} & Node<AbstractFilter & TypeData>;
+
+export type AbstractFilter = {
+  label: string;
 };
 
 export type FilterArea = {
@@ -33,12 +37,30 @@ export type FilterArea = {
   height: number;
 };
 
-export type FeBlendFilter = AbstractFilter<"feBlend"> &
-  FilterArea & {
-    mode: BlendMode;
-    input1: SourceUuid;
-    input2: SourceUuid;
-  };
+export type GraphicSourceData = {
+  source: "illustration" | "mixed" | "photograph" | "text" | "video";
+};
+
+export type FeBlendFilterData = FilterArea & {
+  mode: BlendMode;
+  input1: SourceUuid;
+  input2: SourceUuid;
+} & FilterArea;
+
+export type SVGFilterNode =
+  | MyNode<"source", GraphicSourceData>
+  | MyNode<"feBlend", FeBlendFilterData>;
+
+/*
+export type FeBlendFilterData = {
+  mode: BlendMode;
+  input1: SourceUuid;
+  input2: SourceUuid;
+} & FilterArea;
+export type FeBlendFilter = AbstractFilter<"feBlend", FeBlendFilterData>;
+
+
+
 
 export type FeColorMatrixFilter = AbstractFilter<"feColorMatrix"> &
   FilterArea & {
@@ -106,6 +128,7 @@ export type FeMorphologyFilter = AbstractFilter<"feMorphology"> &
     operator: MorphologyOperator;
     input: SourceUuid;
   };
+	*/
 
 // @todo FeSpecularLightingFilter
 // @todo FeDiffuseLightingFilter

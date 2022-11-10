@@ -1,44 +1,29 @@
-import { Edge, Node } from "reactflow";
+import { Edge } from "reactflow";
+import { SVGFilterNode } from "../../model/filters";
 
-export const nodes: Node<any>[] = [
+export const nodes: SVGFilterNode[] = [
   {
     id: "1",
-    data: { label: "Welcome" },
+    data: { label: "test", source: "illustration" },
     position: { x: 0, y: 0 },
+    type: "source",
   },
   {
     id: "2",
-    data: { label: "TypeScript", value: "hell" },
-    type: "custom",
-    position: { x: 100, y: 400 },
-  },
-  {
-    id: "3",
-    type: "output",
-    data: { label: "Output #1" },
-    position: { x: 10, y: 10 },
-    parentNode: "5",
-    extent: "parent",
-  },
-  {
-    id: "4",
-    type: "output",
-    data: { label: "Output #2" },
-    position: { x: 10, y: 80 },
-    parentNode: "5",
-    extent: "parent",
-  },
-  {
-    id: "5",
-    type: "group",
-    data: { label: "Outputs" },
-    position: { x: 150, y: 40 },
-    style: {
-      width: 170,
-      height: 140,
+    data: {
+      label: "test",
+      mode: "multiply",
+      input1: "input1",
+      input2: "input2",
+      x: 0,
+      y: 0,
+      width: 100,
+      height: 100,
     },
+    position: { x: 0, y: 100 },
+    type: "feBlend",
   },
 ];
 export const edges: Edge[] = [
-  { id: "1-2", source: "1", target: "2", label: "to the", type: "step" },
+  { id: "1-2", source: "1", target: "2", type: "step", animated: true },
 ];

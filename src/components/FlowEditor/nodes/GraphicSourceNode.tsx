@@ -1,18 +1,8 @@
-import { ChangeEvent, useCallback } from "react";
 import { Handle, NodeProps, Position } from "reactflow";
-import { GraphicSourceData } from "../../../model/GraphicSource";
+import { GraphicSourceData } from "../../../model/filters";
 import { NodeCard } from "../nodes/NodeCard";
 
-const handleStyle = { left: 10 };
-
 export const GraphicSourceNode = ({ data }: GraphicSourceNodeProps) => {
-  const handleTypeChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      console.log(event.currentTarget.value);
-    },
-    []
-  );
-
   return (
     <NodeCard>
       <Handle
@@ -21,6 +11,9 @@ export const GraphicSourceNode = ({ data }: GraphicSourceNodeProps) => {
         id="output"
         className="nodecard-handle mod--output"
       />
+      <div>
+        <h5>{data.source}</h5>
+      </div>
     </NodeCard>
   );
 };

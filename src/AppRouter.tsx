@@ -4,11 +4,16 @@ import { PageGallery } from "./pages/PageGallery";
 import { PageFlowEditorPoc } from "./pages/PageFlowEditorPoc";
 import { PageAbout } from "./pages/PageAbout";
 import { createRouteConfig, createReactRouter } from "@tanstack/react-router";
+import { PageFlowEditorPocStressTest } from "./pages/PageFlowEditorPocStressTest";
 
 const routeConfig = createRouteConfig().createChildren((createRoute) => [
   createRoute({ path: "/", element: <HomePage /> }),
-  createRoute({ path: "/poc", element: <PageFlowEditorPoc /> }),
   createRoute({ path: "/editor", element: <PageFlowEditor /> }),
+  createRoute({ path: "/poc", element: <PageFlowEditorPoc /> }),
+  createRoute({
+    path: "/stressTest",
+    element: <PageFlowEditorPocStressTest />,
+  }),
   createRoute({ path: "/gallery", element: <PageGallery /> }).createChildren(
     (createRoute) => [
       createRoute({ path: "/", element: <PageGallery /> }),
@@ -30,7 +35,8 @@ export const links = [
     link: "/editor",
     links: [
       { label: "Editor", link: "/editor" },
-      { label: "Demo", link: "/poc" },
+      { label: "POC", link: "/poc" },
+      { label: "Stress Test", link: "/stressTest" },
     ],
   },
   { label: "About", link: "/about", links: null },

@@ -1,4 +1,3 @@
-import "reactflow/dist/style.css";
 import { FlowEditorStoreContextProvider } from "../components/FlowEditor/contexts/FlowEditorStoreContext";
 import { FlowEditorUI } from "../components/FlowEditor/FlowEditorUI";
 import { FlowEditorUIContextProvider } from "../components/FlowEditor/contexts/FlowEditorUIContext";

@@ -11,8 +11,12 @@ import ReactFlow, {
   addEdge,
   Connection,
   NodeTypes,
+  MiniMap,
 } from "reactflow";
 import { useFlowEditorStoreContext } from "./contexts/FlowEditorStoreContext";
+import "reactflow/dist/base.css";
+import { GraphicSourceNode } from "./nodes/GraphicSourceNode";
+import { FeBlendNode } from "./nodes/FeBlendNode";
 
 const useStyles = createStyles((theme) => ({
   flowContainer: {
@@ -24,7 +28,13 @@ const useStyles = createStyles((theme) => ({
 export const FlowEditorUI = () => {
   const { classes } = useStyles();
   const { setNodes, nodes, setEdges, edges } = useFlowEditorStoreContext();
-  const nodeTypes: NodeTypes = useMemo(() => ({}), []);
+  const nodeTypes: NodeTypes = useMemo(
+    () => ({
+      source: GraphicSourceNode,
+      feBlend: FeBlendNode,
+    }),
+    []
+  );
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) => {
@@ -62,6 +72,7 @@ export const FlowEditorUI = () => {
       >
         <Background />
         <Controls />
+        <MiniMap style={{ height: 120 }} zoomable pannable />
       </ReactFlow>
     </div>
   );

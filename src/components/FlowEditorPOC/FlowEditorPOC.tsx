@@ -14,9 +14,9 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { CustomNode } from "./CustomNode";
-import { nodes as initialNodes, edges as initialEdges } from "./mockData";
 
-export const FlowEditorPOC = () => {
+export const FlowEditorPOC = (props: FlowEditorPocProps) => {
+  const { nodes: initialNodes, edges: initialEdges } = props;
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
   const nodeTypes: NodeTypes = useMemo(
@@ -60,4 +60,9 @@ export const FlowEditorPOC = () => {
       <Controls />
     </ReactFlow>
   );
+};
+
+export type FlowEditorPocProps = {
+  nodes: Node[];
+  edges: Edge[];
 };

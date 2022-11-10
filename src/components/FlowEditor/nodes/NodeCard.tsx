@@ -1,8 +1,17 @@
+import { createStyles } from "@mantine/core";
 import { ReactNode } from "react";
-import "./NodeCard.css";
+
+const useStyles = createStyles((theme) => ({
+  card: {
+    background: "white",
+    borderColor: "#666666",
+    padding: "1rem",
+  },
+}));
 
 export const NodeCard = ({ children }: NodeCardProps) => {
-  return <div className="nodecard">{children}</div>;
+  const { classes } = useStyles();
+  return <div className={classes.card}>{children}</div>;
 };
 
 export type NodeCardProps = {
