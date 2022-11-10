@@ -1,6 +1,6 @@
+import { createStyles } from "@mantine/core";
 import { useCallback, useMemo } from "react";
 import ReactFlow, {
-  Node,
   Edge,
   Background,
   Controls,
@@ -12,9 +12,17 @@ import ReactFlow, {
   Connection,
   NodeTypes,
 } from "reactflow";
-import { useFlowEditorStoreContext } from "./FlowEditorStoreContext";
+import { useFlowEditorStoreContext } from "./contexts/FlowEditorStoreContext";
+
+const useStyles = createStyles((theme) => ({
+  flowContainer: {
+    width: "100%",
+    height: "100%",
+  },
+}));
 
 export const FlowEditorUI = () => {
+  const { classes } = useStyles();
   const { setNodes, nodes, setEdges, edges } = useFlowEditorStoreContext();
   const nodeTypes: NodeTypes = useMemo(() => ({}), []);
 
@@ -42,7 +50,7 @@ export const FlowEditorUI = () => {
   );
 
   return (
-    <div id="SVGFilterEditor">
+    <div className={classes.flowContainer}>
       <ReactFlow
         fitView
         nodes={nodes}

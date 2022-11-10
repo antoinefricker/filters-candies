@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback } from "react";
 import { Handle, NodeProps, Position } from "reactflow";
-import { GraphicSourceData } from "../../model/GraphicSource";
-import { NodeCard } from "./NodeCard";
+import { GraphicSourceData } from "../../../model/GraphicSource";
+import { NodeCard } from "../nodes/NodeCard";
 
 const handleStyle = { left: 10 };
 
