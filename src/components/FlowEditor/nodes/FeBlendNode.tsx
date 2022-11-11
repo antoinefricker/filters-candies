@@ -6,15 +6,13 @@ export const FeBlendNode = ({ data }: FeBlendNodeProps) => {
   return (
     <NodeCard>
       <Handle
-        type="source"
-        position={Position.Bottom}
-        id="output"
+        type="target"
+        position={Position.Top}
         className="nodecard-handle mod--output"
       />
       <Handle
         type="source"
-        position={Position.Top}
-        id="input"
+        position={Position.Bottom}
         className="nodecard-handle mod--input"
       />
       <div>

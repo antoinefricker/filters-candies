@@ -20,7 +20,22 @@ export const nodes: SVGFilterNode[] = [
       width: 100,
       height: 100,
     },
-    position: { x: 0, y: 100 },
+    position: { x: 0, y: 400 },
+    type: "feBlend",
+  },
+  {
+    id: "3",
+    data: {
+      label: "test",
+      mode: "multiply",
+      input1: "input1",
+      input2: "input2",
+      x: 0,
+      y: 0,
+      width: 100,
+      height: 100,
+    },
+    position: { x: -200, y: 400 },
     type: "feBlend",
   },
 ];

@@ -2,6 +2,10 @@
 
 Visual programming SVG filters configurator
 
+## Utilities
+
+[Tabler icons](https://tabler-icons.io/>)
+
 ## Commands
 
 ### Install dependencies

@@ -52,3 +52,11 @@ export type FlowEditorStoreProviderProps = {
   nodes?: Node[];
   edges?: Edge[];
 };
+
+export const fullfillNodes = (nodes: Node[]) =>
+  nodes.map((node) => ({
+    draggable: true,
+    dragHandle: ".drag-handle",
+    connectable: true,
+    ...node,
+  }));

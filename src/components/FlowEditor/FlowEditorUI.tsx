@@ -69,6 +69,7 @@ export const FlowEditorUI = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
+        maxZoom={1}
       >
         <Background />
         <Controls />

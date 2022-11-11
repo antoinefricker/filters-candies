@@ -7,8 +7,7 @@ import {
   Burger,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconChevronDown } from "@tabler/icons";
-import { IconLollipop } from "@tabler/icons";
+import { IconChevronDown, IconLollipop } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   header: {
