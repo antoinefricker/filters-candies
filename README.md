@@ -1,10 +1,13 @@
-# filters-candies
+# SVG Filters Eye Candies
 
 Visual programming SVG filters configurator
+<https://github.com/septentrion-730n/filters-candies>
 
 ## Utilities
 
-[Tabler icons](https://tabler-icons.io/>)
+- [Tabler icons](https://tabler-icons.io/>)
+- [React Flow](https://reactflow.dev/docs/introduction/)
+- [Mantine](https://ui.mantine.dev/)
 
 ## Commands
 
