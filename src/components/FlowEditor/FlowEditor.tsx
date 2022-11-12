@@ -1,4 +1,3 @@
-import { createStyles } from "@mantine/core";
 import { useCallback, useMemo } from "react";
 import ReactFlow, {
   Edge,
@@ -14,23 +13,18 @@ import ReactFlow, {
   MiniMap,
 } from "reactflow";
 import { useFlowEditorStoreContext } from "./contexts/FlowEditorStoreContext";
-import "reactflow/dist/base.css";
-import { GraphicSourceNode } from "./nodes/GraphicSourceNode";
+import { SourceNode } from "./nodes/SourceNode";
+import { PreviewNode } from "./nodes/PreviewNode";
 import { FeBlendNode } from "./nodes/FeBlendNode";
+import "reactflow/dist/base.css";
+import "./flowEditor.scss";
 
-const useStyles = createStyles((theme) => ({
-  flowContainer: {
-    width: "100%",
-    height: "100%",
-  },
-}));
-
-export const FlowEditorUI = () => {
-  const { classes } = useStyles();
+export const FlowEditor = () => {
   const { setNodes, nodes, setEdges, edges } = useFlowEditorStoreContext();
   const nodeTypes: NodeTypes = useMemo(
     () => ({
-      source: GraphicSourceNode,
+      source: SourceNode,
+      preview: PreviewNode,
       feBlend: FeBlendNode,
     }),
     []
@@ -53,6 +47,7 @@ export const FlowEditorUI = () => {
 
   const onConnect = useCallback(
     (params: Edge | Connection) => {
+      console.log(params);
       const newEdges = addEdge(params, edges);
       setEdges(newEdges);
     },
@@ -60,7 +55,7 @@ export const FlowEditorUI = () => {
   );
 
   return (
-    <div className={classes.flowContainer}>
+    <div className="flowEditor">
       <ReactFlow
         fitView
         nodes={nodes}

@@ -43,7 +43,7 @@ export const useFlowEditorStoreContext = () => {
 export type FlowEditorStoreContextType = {
   nodes: Node[];
   setNodes: Dispatch<Node[]>;
-  edges: any;
+  edges: Edge[];
   setEdges: Dispatch<Edge[]>;
 };
 
@@ -56,7 +56,7 @@ export type FlowEditorStoreProviderProps = {
 export const fullfillNodes = (nodes: Node[]) =>
   nodes.map((node) => ({
     draggable: true,
-    dragHandle: ".drag-handle",
+    dragHandle: ".nodecard__header",
     connectable: true,
     ...node,
   }));

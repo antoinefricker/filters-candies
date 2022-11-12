@@ -10,7 +10,7 @@ import {
 } from "./filtersUtils";
 import { Node } from "reactflow";
 
-export type SVGFilterType =
+export type NodeTypes =
   | "feBlend"
   | "feColorMatrix"
   | "feComponentTransfer"
@@ -20,15 +20,14 @@ export type SVGFilterType =
   | "feFlood"
   | "feGaussian"
   | "feMorphology"
+  | "preview"
   | "source";
 
-export type MyNode<FilterType extends SVGFilterType, TypeData> = {
-  type: FilterType;
+export type MyNode<NodeType extends NodeTypes, TypeData> = {
+  type: NodeType;
 } & Node<AbstractFilter & TypeData>;
 
-export type AbstractFilter = {
-  label: string;
-};
+export type AbstractFilter = {};
 
 export type FilterArea = {
   x: number;
@@ -37,18 +36,23 @@ export type FilterArea = {
   height: number;
 };
 
-export type GraphicSourceData = {
+export type SourceData = {
+  label: string;
   source: "illustration" | "mixed" | "photograph" | "text" | "video";
 };
 
+export type PreviewData = {};
+
 export type FeBlendFilterData = FilterArea & {
+  label: string;
   mode: BlendMode;
   input1: SourceUuid;
   input2: SourceUuid;
 } & FilterArea;
 
 export type SVGFilterNode =
-  | MyNode<"source", GraphicSourceData>
+  | MyNode<"source", SourceData>
+  | MyNode<"preview", PreviewData>
   | MyNode<"feBlend", FeBlendFilterData>;
 
 /*
