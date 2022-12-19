@@ -28,7 +28,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.3",
     "reactflow": "^11.2.0",
-    "sass": "^1.56.1"
+    "sass": "^1.56.1",
+    "tone": "^14.7.77"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.19.0",

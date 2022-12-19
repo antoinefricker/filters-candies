@@ -16,6 +16,7 @@ import "reactflow/dist/style.css";
 import { ColorNode } from "./ColorNode";
 import { CustomNode } from "./CustomNode";
 import { ImageNode } from "./ImageNode";
+import { BeepNode } from "./BeepNode";
 
 export const FlowEditorPOC = (props: FlowEditorPocProps) => {
   const { id, nodes: initialNodes, edges: initialEdges } = props;
@@ -27,6 +28,7 @@ export const FlowEditorPOC = (props: FlowEditorPocProps) => {
       color: ColorNode,
       weapon: ImageNode,
       villain: ImageNode,
+      beep: BeepNode,
     }),
     []
   );

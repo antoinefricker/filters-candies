@@ -5,6 +5,7 @@ import { PageFlowEditorPoc } from "./pages/PagePoc";
 import { createRouteConfig, createReactRouter } from "@tanstack/react-router";
 import { PageStressTest } from "./pages/PageStressTest";
 import { PageMegaStressTest } from "./pages/PageMegaStressTest";
+import { PageBeepMachineTest } from "./pages/PageBeepMachineTest";
 import { PageBabySteps } from "./pages/PageBabySteps";
 
 const routeConfig = createRouteConfig().createChildren((createRoute) => [
@@ -19,6 +20,10 @@ const routeConfig = createRouteConfig().createChildren((createRoute) => [
   createRoute({
     path: "/megaStressTest",
     element: <PageMegaStressTest />,
+  }),
+  createRoute({
+    path: "/beepMachine",
+    element: <PageBeepMachineTest />,
   }),
   createRoute({ path: "/editor", element: <PageFlowEditor /> }),
 ]);
@@ -38,6 +43,7 @@ export const links = [
       { label: "Baby steps", link: "/babysteps" },
       { label: "Stress Test", link: "/stressTest" },
       { label: "Mega stress Test", link: "/megaStressTest" },
+      { label: "Beep machine", link: "/beepMachine" },
       { label: "Editor", link: "/editor" },
     ],
   },
