@@ -4,15 +4,15 @@ import { SVGFilterNode } from "../../model/filters";
 export const nodes: SVGFilterNode[] = [
   {
     id: "1",
-    data: { label: "Source 1", source: "illustration" },
+    data: { label: "Source 1", sourceType: "illustration" },
     position: { x: 0, y: 0 },
     type: "source",
   },
   {
     id: "2",
-    data: { label: "Template", source: "photograph" },
+    data: { label: "Template", source: "http://www.septephotograph" },
     position: { x: 0, y: 300 },
-    type: "source",
+    type: "feImage",
   },
   {
     id: "3",
@@ -31,8 +31,8 @@ export const nodes: SVGFilterNode[] = [
   },
   {
     id: "4",
-    data: { label: "" },
-    position: { x: 400, y: 450 },
+    data: { label: null },
+    position: { x: 700, y: 150 },
     type: "preview",
   },
 ];
@@ -50,8 +50,17 @@ export const edges: Edge[] = [
     id: "2-3",
     source: "2",
     sourceHandle: "output",
-    target: "2",
+    target: "3",
     targetHandle: "input2",
+    type: "step",
+    animated: true,
+  },
+  {
+    id: "3-4",
+    source: "3",
+    sourceHandle: "output",
+    target: "4",
+    targetHandle: "input",
     type: "step",
     animated: true,
   },

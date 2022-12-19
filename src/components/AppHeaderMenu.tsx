@@ -7,7 +7,7 @@ import {
   Burger,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconChevronDown, IconLollipop } from "@tabler/icons";
+import { IconChevronDown, IconLego } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -123,11 +123,11 @@ export function AppHeaderMenu({ links }: AppHeaderMenuProps) {
     <Header height={56} px={12} className={classes.header}>
       <div className={classes.inner}>
         <a href="/" className={classes.brand}>
-          <Group position="center">
-            <IconLollipop size={28} stroke={1} />
-            <h1>SVG Filters Eye Candies</h1>
+          <Group position="center"> 
+            <IconLego size={28} stroke={1} />
+            <h1>Meaningful world saving application</h1>
           </Group>
-        </a>
+        </a> 
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>

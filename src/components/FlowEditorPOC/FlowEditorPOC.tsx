@@ -13,15 +13,20 @@ import ReactFlow, {
   NodeTypes,
 } from "reactflow";
 import "reactflow/dist/style.css";
+import { ColorNode } from "./ColorNode";
 import { CustomNode } from "./CustomNode";
+import { ImageNode } from "./ImageNode";
 
 export const FlowEditorPOC = (props: FlowEditorPocProps) => {
-  const { nodes: initialNodes, edges: initialEdges } = props;
+  const { id, nodes: initialNodes, edges: initialEdges } = props;
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
   const nodeTypes: NodeTypes = useMemo(
     () => ({
       custom: CustomNode,
+      color: ColorNode,
+      weapon: ImageNode,
+      villain: ImageNode,
     }),
     []
   );
@@ -44,6 +49,7 @@ export const FlowEditorPOC = (props: FlowEditorPocProps) => {
 
   return (
     <ReactFlow
+      id={id}
       style={{
         width: "100%",
         height: "100%",
@@ -63,6 +69,7 @@ export const FlowEditorPOC = (props: FlowEditorPocProps) => {
 };
 
 export type FlowEditorPocProps = {
+  id?: string;
   nodes: Node[];
   edges: Edge[];
 };

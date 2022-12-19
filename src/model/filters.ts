@@ -12,6 +12,7 @@ import { Node } from "reactflow";
 
 export type NodeTypes =
   | "feBlend"
+  | "feImage"
   | "feColorMatrix"
   | "feComponentTransfer"
   | "feConvolveMatrix"
@@ -38,8 +39,15 @@ export type FilterArea = {
 
 export type SourceData = {
   label: string;
-  source: "illustration" | "mixed" | "photograph" | "text" | "video";
+  sourceType: SourceType;
 };
+
+export type SourceType =
+  | "illustration"
+  | "mixed"
+  | "photograph"
+  | "text"
+  | "video";
 
 export type PreviewData = {};
 
@@ -50,9 +58,26 @@ export type FeBlendFilterData = FilterArea & {
   input2: SourceUuid;
 } & FilterArea;
 
+export type FeImageFilterData = FilterArea & {
+  source: string;
+  preserveAspectRationAlign:
+    | "xMinYMin"
+    | "xMidYMin"
+    | "xMaxYMin"
+    | "xMinYMid"
+    | "xMidYMid"
+    | "xMaxYMid"
+    | "xMinYMax"
+    | "xMidYMax"
+    | "xMaxYMax";
+  preserveAspectRationMeetOrSlice: "meet" | "slice";
+  crossOrigin: "anonymous" | "use-credentials";
+};
+
 export type SVGFilterNode =
   | MyNode<"source", SourceData>
   | MyNode<"preview", PreviewData>
+  | MyNode<"feImage", FeImageFilterData>
   | MyNode<"feBlend", FeBlendFilterData>;
 
 /*

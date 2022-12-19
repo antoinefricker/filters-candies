@@ -3,6 +3,7 @@ import {
   Dispatch,
   ReactNode,
   useContext,
+  useMemo,
   useState,
 } from "react";
 import { Node, Edge } from "reactflow";
@@ -21,9 +22,32 @@ export const FlowEditorStoreContextProvider = (
   } = props;
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
+
   return (
     <FlowEditorStoreContext.Provider
-      value={{ nodes, setNodes, edges, setEdges }}
+      value={{
+        edges,
+        setEdges,
+        nodes,
+        setNodes,
+        updateNode: (nodeId: string, dataUpdate: any) => {
+          const nodeIndex = nodes.findIndex(
+            (node: Node<any>) => node.id === nodeId
+          );
+          if (nodeIndex < 0) {
+            console.warn(`Unable to find nodewith id: #${nodeId}`);
+          }
+
+          setNodes([
+            ...nodes.slice(0, nodeIndex),
+            {
+              ...nodes[nodeIndex],
+              data: { ...nodes[nodeIndex].data, ...dataUpdate },
+            },
+            ...nodes.slice(nodeIndex + 1),
+          ]);
+        },
+      }}
     >
       {children}
     </FlowEditorStoreContext.Provider>
@@ -43,6 +67,7 @@ export const useFlowEditorStoreContext = () => {
 export type FlowEditorStoreContextType = {
   nodes: Node[];
   setNodes: Dispatch<Node[]>;
+  updateNode: (nodeId: string, update: {}) => void;
   edges: Edge[];
   setEdges: Dispatch<Edge[]>;
 };

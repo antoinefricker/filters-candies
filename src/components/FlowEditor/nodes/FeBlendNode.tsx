@@ -1,12 +1,12 @@
-import { Handle, NodeProps, Position } from "reactflow";
+import { NodeProps } from "reactflow";
 import { FeBlendFilterData } from "../../../model/filters";
-import { NodeCard } from "../nodes/NodeCard";
+import { NodeCard, createNodeCardTitle } from "../nodes/NodeCard";
 
-export const FeBlendNode = ({ data }: FeBlendNodeProps) => {
+export const FeBlendNode = (props: FeBlendNodeProps) => {
   return (
     <NodeCard
       type="feBlend"
-      title="Blend"
+      title={createNodeCardTitle(props, "Blend")}
       inputs={["input1", "input2", "input3"]}
       output={true}
     >

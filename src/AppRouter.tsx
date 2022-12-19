@@ -1,26 +1,26 @@
 import { HomePage } from "./pages/HomePage";
 import { PageFlowEditor } from "./pages/PageFlowEditor";
-import { PageGallery } from "./pages/PageGallery";
-import { PageFlowEditorPoc } from "./pages/PageFlowEditorPoc";
-import { PageAbout } from "./pages/PageAbout";
+import { PageFirstGallop } from "./pages/PageFirstGallop";
+import { PageFlowEditorPoc } from "./pages/PagePoc";
 import { createRouteConfig, createReactRouter } from "@tanstack/react-router";
-import { PageFlowEditorPocStressTest } from "./pages/PageFlowEditorPocStressTest";
+import { PageStressTest } from "./pages/PageStressTest";
+import { PageMegaStressTest } from "./pages/PageMegaStressTest";
+import { PageBabySteps } from "./pages/PageBabySteps";
 
 const routeConfig = createRouteConfig().createChildren((createRoute) => [
   createRoute({ path: "/", element: <HomePage /> }),
-  createRoute({ path: "/editor", element: <PageFlowEditor /> }),
+  createRoute({ path: "/firstGallop", element: <PageFirstGallop /> }),
   createRoute({ path: "/poc", element: <PageFlowEditorPoc /> }),
+  createRoute({ path: "/babysteps", element: <PageBabySteps /> }),
   createRoute({
     path: "/stressTest",
-    element: <PageFlowEditorPocStressTest />,
+    element: <PageStressTest />,
   }),
-  createRoute({ path: "/gallery", element: <PageGallery /> }).createChildren(
-    (createRoute) => [
-      createRoute({ path: "/", element: <PageGallery /> }),
-      createRoute({ path: "/:id", element: <PageFlowEditor /> }),
-    ]
-  ),
-  createRoute({ path: "/about", element: <PageAbout /> }),
+  createRoute({
+    path: "/megaStressTest",
+    element: <PageMegaStressTest />,
+  }),
+  createRoute({ path: "/editor", element: <PageFlowEditor /> }),
 ]);
 
 export const router = createReactRouter({
@@ -29,15 +29,16 @@ export const router = createReactRouter({
 });
 
 export const links = [
-  { label: "Browse", link: "/gallery", links: null },
   {
-    label: "Create",
+    label: "Graphs",
     link: "/editor",
     links: [
-      { label: "Editor", link: "/editor" },
+      { label: "First gallop", link: "/firstGallop" },
       { label: "POC", link: "/poc" },
+      { label: "Baby steps", link: "/babysteps" },
       { label: "Stress Test", link: "/stressTest" },
+      { label: "Mega stress Test", link: "/megaStressTest" },
+      { label: "Editor", link: "/editor" },
     ],
   },
-  { label: "About", link: "/about", links: null },
 ];

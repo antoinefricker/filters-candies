@@ -4,7 +4,7 @@ import { NodeTypes } from "../../../model";
 import "./NodeCard.scss";
 
 export const NodeCard = (props: NodeCardProps) => {
-  const { type, children, title, output = false, inputs = [] } = props;
+  const { type, children, icon, title, output = false, inputs = [] } = props;
   return (
     <div className={`nodecard nodecard--${type}`}>
       {output && <NodeCardHandle type="output" />}
@@ -16,6 +16,8 @@ export const NodeCard = (props: NodeCardProps) => {
         />
       ))}
       <header className="nodecard__header">
+        <div className="nodecard__header-icon">{icon}</div>
+
         <h4>{title}</h4>
       </header>
       <div className="nodecard__container">{children}</div>
@@ -58,6 +60,7 @@ export type NodeCardHandleProps = {
 
 export type NodeCardProps = {
   children?: ReactNode;
+  icon?: ReactNode;
   type: NodeTypes;
   title: string;
   output?: boolean;
@@ -65,4 +68,4 @@ export type NodeCardProps = {
 };
 
 export const createNodeCardTitle = (props: NodeProps, title: string) =>
-  `#${props.id} ${title}`;
+  `#${props.id} ${props.data.label ?? title}`;

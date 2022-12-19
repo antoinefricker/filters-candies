@@ -94,10 +94,21 @@
     background-color: #eeeeee;
     border-radius: $border-radius;
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     h4 {
       margin: 0;
-      padding: 0.25rem;
+      padding: 4px;
       cursor: grab;
+    }
+    .nodecard__header-icon {
+      display: inline-flex;
+      padding: 0 0.25rem;
+      svg {
+        display: inline-flex;
+      }
     }
   }
   .react-flow__handle {

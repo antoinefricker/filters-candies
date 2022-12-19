@@ -5,7 +5,7 @@ Visual programming SVG filters configurator
 
 ## Utilities
 
-- [Tabler icons](https://tabler-icons.io/>)
+- [Tabler icons](https://tabler-icons.io/)
 - [React Flow](https://reactflow.dev/docs/introduction/)
 - [Mantine](https://ui.mantine.dev/)
 
